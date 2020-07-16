@@ -1,6 +1,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.baizhi.dao.EmpDAO">
 
+<!--    根据id-->
+    <delete id="delete" parameterType="String">
+        delete from t_emp where id = #{id}
+    </delete>
+
 <!--查询所有-->
     <select id="findAll" resultType="com.baizhi.entity.Emp">
         select id, name, salary, age,bir from t_emp

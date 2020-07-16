@@ -37,4 +37,10 @@ public class EmpController {
         return "ems/emplist";
 
     }
+    //删除员工
+    @GetMapping("/delete")
+    public String delete(String id) {
+        empService.delete(id);
+        return "redirect:/emp/findAll";
+    }
 }

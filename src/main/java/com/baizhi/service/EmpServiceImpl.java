@@ -21,6 +21,11 @@ public class EmpServiceImpl implements EmpService {
     private EmpDAO empDAO;
 
     @Override
+    public void delete(String id) {
+        empDAO.delete(id);
+    }
+
+    @Override
     public void save(Emp emp) {
         emp.setId(UUID.randomUUID().toString());
         empDAO.save(emp);
