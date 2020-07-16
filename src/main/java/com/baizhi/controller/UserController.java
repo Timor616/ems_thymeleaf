@@ -27,6 +27,17 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    //登录
+    @PostMapping("/login")
+    public String login(String username, String password) {
+        User login = userService.login(username, password);
+        if (login!=null) {
+            return "redirect:/emp/findAll";
+        } else {
+            return "redirect:/index";
+        }
+    }
+
     //注册
     @PostMapping("/register")
     public String register(User user, String code, HttpSession session) {
@@ -38,7 +49,6 @@ public class UserController {
         } else {
             return "redirect:/toRegister";
         }
-
 
     }
 
