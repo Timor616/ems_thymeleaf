@@ -21,6 +21,17 @@ public class EmpServiceImpl implements EmpService {
     private EmpDAO empDAO;
 
     @Override
+    public void update(Emp emp) {
+        empDAO.update(emp);
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.SUPPORTS)
+    public Emp find(String id) {
+        return empDAO.find(id);
+    }
+
+    @Override
     public void delete(String id) {
         empDAO.delete(id);
     }

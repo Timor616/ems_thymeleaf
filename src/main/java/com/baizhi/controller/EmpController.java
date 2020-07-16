@@ -43,4 +43,20 @@ public class EmpController {
         empService.delete(id);
         return "redirect:/emp/findAll";
     }
+
+    //id 查询
+    @GetMapping("/find")
+    public String find(String id, Model model) {
+        Emp emp = empService.find(id);
+        model.addAttribute("emp", emp);
+        return "ems/updateEmp";
+
+    }
+
+    //更新员工
+    @PostMapping("/update")
+    public String update(Emp emp) {
+        empService.update(emp);
+        return "redirect:/emp/findAll";
+    }
 }
