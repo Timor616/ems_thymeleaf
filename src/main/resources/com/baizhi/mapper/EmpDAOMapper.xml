@@ -6,5 +6,10 @@
         select id, name, salary, age,bir from t_emp
     </select>
 
+<!--    保存-->
+    <insert id="save" parameterType="com.baizhi.entity.Emp">
+        insert into t_emp values (#{id},#{name},#{salary},#{age},#{bir})
+    </insert>
+
 
 </mapper>
